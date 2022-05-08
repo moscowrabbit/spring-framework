@@ -74,6 +74,8 @@ dependencies {
 	testRuntimeOnly("org.glassfish:jakarta.el")
 	testRuntimeOnly("com.sun.xml.bind:jaxb-core")
 	testRuntimeOnly("com.sun.xml.bind:jaxb-impl")
+	// https://mvnrepository.com/artifact/org.slf4j/slf4j-nop
+	testImplementation group: 'org.slf4j', name: 'slf4j-nop', version: '1.7.36'
 }
 
 // Prevent xml-apis from being used so that the corresponding XML APIs from
