@@ -6,8 +6,9 @@ public class ApplicationTest {
 
 	public static void main(String[] args) {
 		AnnotationConfigApplicationContext annotationConfigApplicationContext
-				= new AnnotationConfigApplicationContext(ApplicationConfig.class);
+				= new AnnotationConfigApplicationContext("org.springframework.one");
 		BeanA beanA = annotationConfigApplicationContext.getBean(BeanA.class);
 		System.out.println(beanA);
+		System.out.println(beanA.getEnvironmentAware());
 	}
 }
