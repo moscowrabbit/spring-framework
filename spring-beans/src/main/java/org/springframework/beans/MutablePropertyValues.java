@@ -163,6 +163,19 @@ public class MutablePropertyValues implements PropertyValues, Serializable {
 	}
 
 	/**
+	 * Overloaded version of {@code addPropertyValue} that takes
+	 * a property name and a property value.
+	 * <p>Note: As of Spring 3.0, we recommend using the more concise
+	 * and chaining-capable variant {@link #add}.
+	 * @param propertyName name of the property
+	 * @param propertyValue value of the property
+	 * @see #addPropertyValue(PropertyValue)
+	 */
+	public void addPropertyValue(String propertyName, Object propertyValue) {
+		addPropertyValue(new PropertyValue(propertyName, propertyValue));
+	}
+
+	/**
 	 * Add a PropertyValue object, replacing any existing one for the
 	 * corresponding property or getting merged with it (if applicable).
 	 * @param pv the PropertyValue object to add
@@ -179,19 +192,6 @@ public class MutablePropertyValues implements PropertyValues, Serializable {
 		}
 		this.propertyValueList.add(pv);
 		return this;
-	}
-
-	/**
-	 * Overloaded version of {@code addPropertyValue} that takes
-	 * a property name and a property value.
-	 * <p>Note: As of Spring 3.0, we recommend using the more concise
-	 * and chaining-capable variant {@link #add}.
-	 * @param propertyName name of the property
-	 * @param propertyValue value of the property
-	 * @see #addPropertyValue(PropertyValue)
-	 */
-	public void addPropertyValue(String propertyName, Object propertyValue) {
-		addPropertyValue(new PropertyValue(propertyName, propertyValue));
 	}
 
 	/**
